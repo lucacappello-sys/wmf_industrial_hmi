@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Narrow:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Archivo Narrow", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-hmi-carbone: #F3F4F6;
+  --color-hmi-toxic-green: #059669;
+  --color-hmi-toxic-green-dim: #047857;
+  --color-hmi-amber: #D97706;
+  --color-hmi-steel: #FFFFFF;
+  --color-hmi-steel-light: #E5E7EB;
+  --color-hmi-steel-border: #D1D5DB;
+  
+  --shadow-hmi-bevel: inset 1px 1px 0px rgba(255,255,255,0.9), inset -1px -1px 0px rgba(0,0,0,0.1);
+  --shadow-hmi-pressed: inset 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+@layer base {
+  body {
+    @apply bg-hmi-carbone text-slate-900 font-sans overflow-hidden antialiased;
+  }
+}
+
+/* Custom industrial effects */
+.industrial-bevel {
+  box-shadow: var(--shadow-hmi-bevel);
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.industrial-gloss {
+  background: linear-gradient(to bottom, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 50%, rgba(0,0,0,0.05) 100%);
+}
+
+.industrial-inset {
+  box-shadow: inset 1px 1px 3px rgba(0,0,0,0.2);
+  background: #E5E7EB;
+}
+
+.blink-alert {
+  animation: hmi-blink 1s steps(1) infinite;
+}
+
+@keyframes hmi-blink {
+  50% { opacity: 0.3; }
+}
+
+/* Hide scrollbars for the HMI look */
+::-webkit-scrollbar {
+  display: none;
+}
